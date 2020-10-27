@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput } from 'react-native';
+import { StyleSheet, TextInput } from 'react-native';
 
 const Input = (props) => {
     return (
@@ -10,25 +10,28 @@ const Input = (props) => {
             onChangeText={props.onChangeText}
             underlineColorAndroid='transparent'
             placeholder={props.placeholder}
-            placeholderTextColor='#ff0000'
-            style={[styles.inputStyle, props.width ? { width: props.width } : { width: '80%' }]}
+            placeholderTextColor='gray'
+            style={styles.inputStyle}
             keyboardType={props.keyboardType}
             secureTextEntry={props.secureTextEntry}
+            returnKeyType='done'
+            maxLength={props.maxLength}
         />
     )
 };
 
-const styles = {
+const styles = StyleSheet.create({
     inputStyle: {
-        color: '#ff0000',
+        flex: 1,
+        color: '#000',
         maxHeight: 50,
         paddingLeft: 5,
-        // fontSize: 23,
         lineHeight: 18,
-        flex: 1,
-        borderColor: '#ff0000',
+        borderColor: 'gray',
         borderWidth: 1,
+        width: '80%',
+        textAlign: 'center'
     }
-};
+})
 
 export default Input;
