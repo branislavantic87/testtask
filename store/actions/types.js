@@ -1,2 +1,3 @@
 export const LOGIN_TEXT_CHANGED = 'LOGIN_TEXT_CHANGED';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const CHANGE_TAB_NAV = 'CHANGE_TAB_NAV';
