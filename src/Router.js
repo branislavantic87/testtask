@@ -1,10 +1,8 @@
 import React from 'react';
 import { Scene, Router, Stack, Tabs } from 'react-native-router-flux';
-import MySurveysTab from './MainScreenTabs/MySurveysTab';
-import ProfileTab from './MainScreenTabs/ProfileTab';
-import SurveysTab from './MainScreenTabs/SurveyTab';
 import LoginScreen from './Screens/LoginScreen';
 import MainScreen from './Screens/MainScreen';
+import SurveyScreen from './Screens/SurveyScreen';
 
 
 const RouterComponent = () => {
@@ -16,6 +14,7 @@ const RouterComponent = () => {
                 </Scene>
                 <Scene hideNavBar key='main'>
                     <Scene key={'Main'} component={MainScreen} />
+                    <Scene key={'Survey'} component={SurveyScreen} />
                 </Scene>
             </Stack>
         </Router>

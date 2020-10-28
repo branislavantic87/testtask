@@ -11,7 +11,6 @@ import ProfileTab from '../MainScreenTabs/ProfileTab';
 class MainScreen extends Component {
 
     renderTab = (tab) => {
-        console.log(tab)
         switch (tab.nav) {
             case 'surveys':
                 return <SureyTab />
@@ -27,7 +26,7 @@ class MainScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <Header header={'Surveys'} />
+                <Header header={this.props.activeTab.name} />
                 {this.renderTab(this.props.activeTab)}
                 <BottomNavigationBar />
             </View>
