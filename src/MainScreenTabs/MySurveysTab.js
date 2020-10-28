@@ -1,27 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Actions } from 'react-native-router-flux';
-import { surveys } from '../../constants';
+import { View, StyleSheet } from 'react-native';
 
 class MySurveysTab extends Component {
-
-    _renderItem = ({ item, index }) => {
-        return (
-            <TouchableOpacity onPress={() => Actions.Survey({ survey: item })} style={styles.touchableStyle}>
-                <Text style={styles.textStyle}>{item.name}</Text>
-            </TouchableOpacity>
-        )
-    }
 
     render() {
         return (
             <View style={styles.mainContainer}>
-                <FlatList
-                    data={surveys}
-                    renderItem={this._renderItem}
-                    keyExtractor={(item, index) => index.toString()}
-                />
             </View>
         )
     }

@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import { ADD_DATA_FOR_SAVING, SET_ACTIVE_SURVEY } from "./types"
 
 
@@ -16,7 +17,19 @@ export const setActiveSurvey = (payload) => {
 }
 
 export const saveDataToAsyncStorage = () => async (dispatch, getState) => {
-    const state = getState();
-    console.log(state)
-    
+    try {
+        const state = getState().surveyReducer;
+        const dataForSaving = { survey: state.activeSurvey, data: state.surveyToBeSaved }
+        const savedSurveys = await AsyncStorage.getItem('@survey').then(res => JSON.parse(res))
+        if (!savedSurveys) {
+            const value = [dataForSaving]
+            await AsyncStorage.setItem('@survey', JSON.stringify(value)).then(res => console.log(res))
+        } else {
+            const newSurveys = savedSurveys.push(dataForSaving);
+            await AsyncStorage.setItem('@survey', JSON.stringify(newSurveys))
+        }
+    } catch (error) {
+        console.log('Catch from saveDataToAsync ', error)
+    }
+
 }

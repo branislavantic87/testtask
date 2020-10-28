@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
 import { connect } from 'react-redux';
-import { saveSignleQuestion, setActiveSurvey } from '../../store/actions/SurveyActions';
+import { saveDataToAsyncStorage, saveSignleQuestion, setActiveSurvey } from '../../store/actions/SurveyActions';
 import Button from '../common/Button';
 import ThankYouPage from '../Surveys/ThankYouPage';
 
@@ -30,6 +30,7 @@ class SurveyScreen extends Component {
         if (this.props.survey.questions.length !== this.state.questionIndex + 1) {
             this.setState({ questionIndex: this.state.questionIndex + 1, selectedIndex: null })
         } else {
+            this.props.saveDataToAsyncStorage()
             this.setState({ surveyFinished: true })
         }
     }
@@ -109,9 +110,9 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
-        survetyToBeSaved: state.surveyReducer.survetyToBeSaved,
+        surveyToBeSaved: state.surveyReducer.surveyToBeSaved,
         activeSurvey: state.surveyReducer.activeSurvey
     }
 }
 
-export default connect(mapStateToProps, { saveSignleQuestion, setActiveSurvey })(SurveyScreen)
+export default connect(mapStateToProps, { saveSignleQuestion, setActiveSurvey, saveDataToAsyncStorage })(SurveyScreen)
