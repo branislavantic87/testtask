@@ -5,7 +5,7 @@ import { surveys } from '../../constants';
 
 const _renderItem = (item, toogle) => {
     return (
-        <TouchableOpacity onPress={() => { Actions.Survey({ survey: item }); toogle() }} style={styles.touchableStyle}>
+        <TouchableOpacity onPress={() => { Actions.SurvPresentation({ survey: item }); toogle() }} style={styles.touchableStyle}>
             <Text style={styles.textStyle}>{item.name}</Text>
         </TouchableOpacity>
     )
