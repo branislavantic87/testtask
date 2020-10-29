@@ -36,8 +36,6 @@ export const saveDataToAsyncStorage = () => async (dispatch, getState) => {
 
 export const getDataFromStorage = () => async (dispatch, getState) => {
     try {
-        // console.log(new Date())
-        // await AsyncStorage.removeItem('@survey')
         const allReadyInState = getState().surveyReducer.localSurveys.length
         const data = await AsyncStorage.getItem('@survey').then(res => JSON.parse(res));
         if (data && data.length !== allReadyInState) {

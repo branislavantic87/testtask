@@ -7,7 +7,6 @@ const SurveyPresentanion = (props) => (
     <View style={styles.mainContainer}>
         <View style={styles.titleContainer}>
             <Text style={styles.headingTextStyle}>{props.survey.name}</Text>
-            {console.log(props.navigation)}
         </View>
         <View style={styles.descriptionContainer}>
             <Text style={styles.descriptionHeadingStyle}>Description: </Text>

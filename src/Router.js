@@ -1,5 +1,6 @@
 import React from 'react';
 import { Scene, Router, Stack, Tabs } from 'react-native-router-flux';
+import CameraScreen from './Screens/CameraScreen';
 import LoginScreen from './Screens/LoginScreen';
 import MainScreen from './Screens/MainScreen';
 import SurveyScreen from './Screens/SurveyScreen';
@@ -19,6 +20,7 @@ const RouterComponent = () => {
                     <Scene key={'SurvPresentation'} component={SurveyPresentanion} />
                     <Scene key={'Survey'} component={SurveyScreen} />
                     <Scene key={'SavedSurveyPresentation'} component={SavedSurveyPresentation} />
+                    <Scene key={'CameraScreen'} component={CameraScreen} />
                 </Scene>
             </Stack>
         </Router>

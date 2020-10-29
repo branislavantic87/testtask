@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import Button from '../common/Button';
 import ModalComponent from '../common/ModalComponent';
 
@@ -17,7 +18,7 @@ class SurveysTab extends Component {
         return (
             <View style={styles.mainContainer}>
                 <Button onPress={() => this.toogleModal()}>Choose survey</Button>
-                <Button onPress={() => { }}>ScanQr code</Button>
+                <Button onPress={() => Actions.CameraScreen()}>ScanQr code</Button>
                 <ModalComponent isVisible={this.state.isVisible} toogleModal={this.toogleModal} />
             </View>
         )

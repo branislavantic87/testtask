@@ -24,7 +24,6 @@ class MySurveysTab extends Component {
         )
     }
     render() {
-        console.log(this.props.navigation)
         return (
             <View style={styles.mainContainer}>
                 <FlatList
