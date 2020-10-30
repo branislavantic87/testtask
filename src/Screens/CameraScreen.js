@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, View } from 'react-native';
+import { View } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import { Actions } from 'react-native-router-flux';
 import { surveys } from '../../constants';
@@ -24,10 +24,6 @@ export default class CameraScreen extends Component {
         if (prevState.code !== this.state.code) {
             Actions.SurvPresentation({ survey: surveys.find(element => element.id === this.state.code) })
         }
-    }
-
-    componentWillUnmount() {
-        console.log('Componeneta se unmountovala')
     }
 
     render() {
