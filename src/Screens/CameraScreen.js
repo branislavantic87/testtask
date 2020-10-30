@@ -5,14 +5,29 @@ import { Actions } from 'react-native-router-flux';
 import { surveys } from '../../constants';
 
 export default class CameraScreen extends Component {
+    constructor() {
+        super()
+        this.state = { code: null }
+    }
 
     barcodeRecognition = ({ barcodes }) => {
-        const found = surveys.find(survey => barcodes.find(barcode => barcode.data === survey.id))
-        if (found) {
-            Actions.SurvPresentation({ survey: found })
-        } else {
-            Alert.alert('Alert', 'There is no survey with that id')
+        // console.log('barcodes', barcodes)
+        if (barcodes && barcodes.length) {
+            const found = barcodes.find(barcode => surveys.find(survey => survey.id === barcode.data))
+            if (found) {
+                this.setState({ code: found.data })
+            }
         }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.code !== this.state.code) {
+            Actions.SurvPresentation({ survey: surveys.find(element => element.id === this.state.code) })
+        }
+    }
+
+    componentWillUnmount() {
+        console.log('Componeneta se unmountovala')
     }
 
     render() {
